@@ -16,17 +16,27 @@ module.exports = {
   },
   module: {
     rules: [
+      // {
+      //   test: /\.js$/,
+      //   use: [path.resolve("./my-webpack-loader.js")],
+      // },
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     process.env.NODE_ENV === "production"
+      //       ? MiniCssExtractPlugin.loader
+      //       : "style-loader",
+      //     "css-loader",
+      //   ],
+      // },
       {
-        test: /\.js$/,
-        use: [path.resolve("./my-webpack-loader.js")],
-      },
-      {
-        test: /\.css$/,
+        test: /\.s[ac]ss$/i,
         use: [
           process.env.NODE_ENV === "production"
             ? MiniCssExtractPlugin.loader
             : "style-loader",
           "css-loader",
+          "sass-loader",
         ],
       },
       // {
@@ -41,6 +51,11 @@ module.exports = {
             maxSize: 20 * 1024,
           },
         },
+      },
+      {
+        test: /\.js$/,
+        use: "babel-loader",
+        exclude: /node_modules/,
       },
     ],
   },

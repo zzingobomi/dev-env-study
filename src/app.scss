@@ -1,0 +1,10 @@
+$padding: 20px;
+
+body {
+  background-image: url(bg.png);
+  padding: $padding;
+
+  image {
+    padding: $padding;
+  }
+}
